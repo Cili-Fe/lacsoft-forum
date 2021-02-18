@@ -10,8 +10,50 @@
         </head>
         <body>
         <div class="login-form">
+        <?php 
+                if(isset($_GET['reg_err']))
+                {
+                    $err = htmlspecialchars($_GET['reg_err']);
+
+                    switch($err)
+                    {
+                        case 'success':
+                        ?>
+                            <div class="alert alert-success">
+                                <strong>Succès</strong> inscription réussie !
+                            </div>
+                        <?php
+                        break;
+
+                        case 'password':
+                        ?>
+                            <div class="alert alert-danger">
+                                <strong>Erreur</strong> mot de passe différent
+                            </div>
+                        <?php
+                        break;
+
+                        case 'email':
+                        ?>
+                            <div class="alert alert-danger">
+                                <strong>Erreur</strong> email non valide
+                            </div>
+                        <?php
+                        break;
+
+
+                        case 'already':
+                        ?>
+                            <div class="alert alert-danger">
+                                <strong>Erreur</strong> compte deja existant
+                            </div>
+                        <?php 
+
+                    }
+                }
+                ?>
             
-            <form action="connexion.php" method="post">
+            <form action="connexion_admin.php" method="post">
                 <h2 class="text-center">Connexion</h2>       
                 <div class="form-group p-2">
                     <input type="email" name="email" class="form-control" placeholder="Email" required="required" autocomplete="off">

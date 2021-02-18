@@ -26,3 +26,7 @@ body{
     font-size: 15px;
     font-weight: bold;
 }
+.inner{
+    width: 150px;
+    height: 20px;
+}

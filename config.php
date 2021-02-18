@@ -8,5 +8,4 @@
         die('Erreur : '.$e->getMessage());
  
     }
-    echo "ok";
 ?>

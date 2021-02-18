@@ -15,9 +15,9 @@ if(isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && 
             if($password == $password_retype){//verifier si les 2 mots se correspondent
                 $cost = ['cost' => 12];
                 $password = password_hash($password, PASSWORD_BCRYPT, $cost);
-                $TestEmail = $bdd->query('SELECT id from users WHERE email = "'.$email.'"');
+                $TestEmail = $bdd->query('SELECT id from admin WHERE email = "'.$email.'"');
                 if($TestEmail->rowCount()<1){
-                    $bdd->query('INSERT INTO users (nom, prenom, email, password) VALUES ("'.$nom.'", "'.$prenom.'", "'.$email.'", "'.$password.'" )');
+                    $bdd->query('INSERT INTO admin (nom, prenom, email, password) VALUES ("'.$nom.'", "'.$prenom.'", "'.$email.'", "'.$password.'" )');
                     header('Location:inscription_admin.php?reg_err=success');
                     die();
                 }else {header('Location:inscription_admin.php?reg_err=email');
