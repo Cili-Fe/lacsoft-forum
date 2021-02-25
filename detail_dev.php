@@ -1,3 +1,17 @@
+<?php
+   /*  require_once 'config.php';
+    $nom = $_GET['nom'];
+    $result = $bdd->prepare("SELECT * FROM users WHERE nom=?");
+    $result->execute(array($nom));
+    $ligne = $result->fetch();*/
+
+   require_once 'config.php';
+
+    $id = $_GET['id'] ;
+    $result = $bdd->prepare("SELECT * FROM users WHERE id=?");
+    $result->execute(array($id));
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,11 +19,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-     <link rel="stylesheet" href="styles/liste.css">
+    <link rel="stylesheet" href="styles/liste.css">
     <title>Document</title>
 </head>
 <body>
-    
 <div class="container-fluid bg-danger entete">
     <div class="container">
         <div class="row">
@@ -45,78 +58,58 @@
             </div>
         </div>
     </div>
- </div>   ""
-
-<?php  
+ </div>
  
-    require_once "config.php";
+ <section class="bg">
+     <h1>Les details de l'apprenant</h1>
+   <?php
+while( $data= $result->fetch()){
+    ?>
+      <form action="#" method="post">
+       <div class="form-group">
+           <label for="" >Nom:</label>
+           <div class="">
+               <tr class="">
+                   <td><?= $data['nom']; ?></td>
+               </tr>
+           </div>
+       </div>
+       <div class="form-group">
+           <label for="" >Prenom:</label>
+           <div class="">
+               <tr class="">
+                   <td><?= $data['prenom']; ?></td>
+               </tr>
+           </div>
+       </div>
+       <div class="form-group">
+           <label for="" >Email:</label>
+           <div class="">
+               <tr class="">
+                   <td><?= $data['email']; ?></td>
+               </tr>
+           </div>
+       </div>
+     </form>
+    <?php
+}
+   ?>
+ </section>
 
-    $requete = ("SELECT nom, prenom, email FROM users ORDER BY nom");
-    $result = $bdd->query($requete);
-    if($result){
-        $nombre=$result->rowCount();
-    } else{
-        echo "reccuperation erreur";
-    }
-
-?>
-
-    <table class="tableau-style">
-        <thead class="">
-            <tr>
-                <th>Nom </th>
-                <th> Prenom</th>
-                <th> E-mail</th>
-            </tr>
-        </thead>
-<?php  
-   
-   while($ligne= $result->fetch(PDO::FETCH_NUM)){
-       echo "<tr>";
-       foreach ($ligne as $valeur) {
-        echo "<td>$valeur</td>";
-       }
-       echo "</tr>";
-   }
-  $result->closeCursor();
-?>     
-      <!-- <tbody>
-            <tr>
-                <td>
-                    contenu
-                </td>
-                <td>
-                    contenu
-                </td>
-                <td>
-                    contenu
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    contenu
-                </td>
-                <td>
-                    contenu
-                </td>
-                <td>
-                    contenu
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    contenu
-                </td>
-                <td>
-                    contenu
-                </td>
-                <td>
-                    contenu
-                </td>
-            </tr>
-        </tbody>-->
-    </table>
-    <script src="javascript/jquery-3.5.1.min.js"></script>
+ <!--<div class="main-w3layouts wrapper">
+ <h1 class="font-weight-bold"> Les detail du développeur  //$data['nom'] ." ". $data['prenom']; </h1>
+		<div class="text-center">
+        <ul>
+            <br>
+            <li class="font-weight-bold ">nom:  //$data['nom']; ?></li>
+            <li class="font-weight-bold ">prenom : // $data['prenom']; ?></li>
+            <li class="font-weight-bold text-white">email :  //$data['email']; ?></li>
+        </ul>
+				<p><a href="listes.php" class="list-unstyled btn btn-light font-weight-bold"> RETOUR</a></p>
+			</div>
+		</div>-->
+ 
+ <script src="javascript/jquery-3.5.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
