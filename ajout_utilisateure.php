@@ -9,7 +9,7 @@ require_once 'config.php';
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
      <link rel="stylesheet" href="styles/developpeur.css">
-    <title>Document</title>
+    <title>Ajouter un Dev</title>
 </head>
 <body>
     <div class="login-form">

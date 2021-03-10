@@ -1,3 +1,16 @@
+<?php
+   /*  require_once 'config.php';
+    $nom = $_GET['nom'];
+    $result = $bdd->prepare("SELECT * FROM users WHERE nom=?");
+    $result->execute(array($nom));
+    $ligne = $result->fetch();*/
+
+   require_once 'config.php';
+
+    $id = $_GET['id'] ;
+    $result = $bdd->prepare("SELECT * FROM users WHERE id=?");
+    $result->execute(array($id));
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,9 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-
-    <link rel="stylesheet" href="styles/reset.css">
-    <link rel="stylesheet" href="styles/backoffice.css">
+    <link rel="stylesheet" href="styles/liste.css">
     <title>Document</title>
 </head>
 <body>
@@ -28,7 +39,7 @@
                       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item active">
                         <div class="btn-group ml-4 ">
-                        <button type="button" class="btn btn-outline-primary dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Compte</button>
+                        <button type="button" class="btn btn-outline-primary  dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Compte</button>
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         </div>
@@ -39,7 +50,7 @@
                           </button>
                           </li>
                           <li class="nav-item">
-                          <button type="button" class="btn btn-outline-primary  ml-4">Deconnexion</button>
+                          <button type="button" class="btn btn-outline-primary ml-4">Deconnexion</button>
                           </li>
                         </ul>
                       </div>
@@ -47,33 +58,59 @@
             </div>
         </div>
     </div>
- </div>   ""
-</div>
-    <div class="login-form">
-    <form action="" method="POST">
-                <h4 class="text-center text-body ">Modifier votre mot de passe</h4>       
-                <div class="form-group">
-                    <input type="email" name="email" class="form-control" placeholder="E-mail ou nom d'utilisateur" required="required" autocomplete="">
-                </div>
-                <div class="form-group">
-                    <input type="password" name="password" class="form-control" placeholder="Mot de passe" required="required" autocomplete="">
-                </div>
-                <div class="form-group">
-                    <input type="text" name="prenom" class="form-control" placeholder="Re-tapez le mot de passe" required="required" autocomplete="">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-danger bt btn-block">Modifier</button>
-                </div>  
-            </form>
-    </div>
+ </div>
+ 
+ <section class="bg">
+     <h1>Les details de l'apprenant</h1>
+   <?php
+while( $data= $result->fetch()){
+    ?>
+      <form action="#" method="post">
+       <div class="form-group">
+           <label for="" >Nom:</label>
+           <div class="">
+               <tr class="">
+                   <td><?= $data['nom']; ?></td>
+               </tr>
+           </div>
+       </div>
+       <div class="form-group">
+           <label for="" >Prenom:</label>
+           <div class="">
+               <tr class="">
+                   <td><?= $data['prenom']; ?></td>
+               </tr>
+           </div>
+       </div>
+       <div class="form-group">
+           <label for="" >Email:</label>
+           <div class="">
+               <tr class="">
+                   <td><?= $data['email']; ?></td>
+               </tr>
+           </div>
+       </div>
+     </form>
+    <?php
+}
+   ?>
+ </section>
 
-
-
-
-    <script src="javascript/jquery-3.5.1.min.js"></script>
+ <!--<div class="main-w3layouts wrapper">
+ <h1 class="font-weight-bold"> Les detail du développeur  //$data['nom'] ." ". $data['prenom']; </h1>
+		<div class="text-center">
+        <ul>
+            <br>
+            <li class="font-weight-bold ">nom:  //$data['nom']; ?></li>
+            <li class="font-weight-bold ">prenom : // $data['prenom']; ?></li>
+            <li class="font-weight-bold text-white">email :  //$data['email']; ?></li>
+        </ul>
+				<p><a href="listes.php" class="list-unstyled btn btn-light font-weight-bold"> RETOUR</a></p>
+			</div>
+		</div>-->
+ 
+ <script src="javascript/jquery-3.5.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="javascript/script.js"></script>
-    
 </body>
 </html>

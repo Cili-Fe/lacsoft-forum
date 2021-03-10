@@ -22,7 +22,7 @@
                       <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <a href="index.php"><button type="button" class="btn btn-outline-primary  dropdown-toggle-split ml-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Forum</button></a>
+                    <a href="forum.php"><button type="button" class="btn btn-outline-primary  dropdown-toggle-split ml-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Forum</button></a>
                       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item active">
                         <div class="btn-group ml-4 ">
@@ -34,9 +34,9 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Supprimer</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Modifier</a>
+                            <a class="dropdown-item" href="modifiaction_password_admine.php">Modifier</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Liste</a>
+                            <a class="dropdown-item" href="listes.php">Liste</a>
                           </div>
                         </div>
                         </li>

@@ -225,14 +225,14 @@
             echo"<tr>";
         
                      
-           
+        
     }
            
        ?>
         <?php $req->closeCursor(); ?>
 
     </table>
-    <p><a href="ajout_utilisateure.php" class="list-unstyled btn btn-light font-weight-bold"> RETOUR</a></p>
+    <p><a href="ajout_utilisateur.php" class="list-unstyled btn btn-light font-weight-bold"> RETOUR</a></p>
     <script src="javascript/jquery-3.5.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>

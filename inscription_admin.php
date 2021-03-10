@@ -81,3 +81,14 @@
         </div>
         </body>
 </html>
+
+
+
+:prenom,:categories, :technos, :message
+
+
+prenom,categories, technos, message
+
+
+
+&& isset($_POST['prenom']) && isset($_POST['categories']) && isset($_POST['technos']) && isset($_POST['message'])
